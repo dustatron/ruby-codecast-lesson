@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
             ContactMailer.contact_email(name, email, body)
             
             
-            flash[:success] = "Message Sent."
+            flash[:success] = "Message≈ Sent."
             redirect_to new_contact_path, notice: "Message Sent."
         else
             flash[:danger] = "Error Occured. Message was not sent."
