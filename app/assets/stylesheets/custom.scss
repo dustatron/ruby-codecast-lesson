@@ -5,15 +5,16 @@
 @import "font-awesome";
 
 body {
-    // https://uigradients.com/#Royal
+
+
+}    
+
+.navbar {
+        // https://uigradients.com/#Royal
     background: #141E30;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(left, #243B55, #141E30);
     background: -moz-linear-gradient(left, #243B55, #141E30);
     background: -o-linear-gradient(left, #243B55, #141E30);
     background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}    
-
-.navbar {
     opacity: 0.7;
 }
