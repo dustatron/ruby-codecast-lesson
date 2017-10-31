@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_for :models
+  
+  resources :users do
+    resource :profile
+  end
+  
   resources :contacts
   resources :charges
   get '/blog' => 'pages#blog'
