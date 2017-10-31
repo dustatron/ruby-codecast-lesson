@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
         
         if @profile.save
             flash[:success] = "Your profile has been updated!"
-            redirect_to user_profile( params[:user_id] )
+            redirect_to user_path( params[:user_id] )
         else
             render action: :new
         end
@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
     private
     
         def profile_params 
-            params.require(:profile).permit(:first_name, last_name, job_title, phone_number, contact_email, description)
+            params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
         end
     
     
