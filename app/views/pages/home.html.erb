@@ -1,4 +1,4 @@
-<%= link_to "Create your profile", new_user_profile_path(current_user) %>
+
 <div class="jumbotron">
     <h1>HOME<h1>
     <h2>This is a test website</h2>
@@ -10,22 +10,49 @@
 </div>
         
 <div class="row">
-    <div class="col-md-6">
-        <div class="well">
-            <h2 class="text-center">Basic Membership</h2>
-            <h4 class="text-center">Sign up for free and get basic access to the community.</h4>
-            <br/>
-            <%= link_to "Sign up for free", new_user_registration_path(plan: @basic_Plan.id), class: 'btn btn-primary btn-lg btn-block'%>
+    <% if user_signed_in? %>
+        <div class="col-md-6">  
+            <div class="well">
+                <h2 class="text-center">
+                    Your Profile
+                </h2>
+                <% if current_user.profile %>
+                    <%= link_to "Edit Profile", "#", class: 'btn btn-lg btn-block btn-default'%> <br/>
+                    <%= link_to "View Profile", user_path(current_user), class: 'btn btn-block btn-lg btn-default' %><br/>
+                <% else %>
+                    <%= link_to "Create your profile", new_user_profile_path(current_user) %>
+                <%end%>            
+            </div>
         </div>
-        
-    </div>
-    <div class="col-md-6">
-        <div class="well text-center">
-            <h2>Pro Membership </h2>
-            <h4>Sign up for a Pro account and get full access to the cummunity.</h4>
-            <%= link_to "Sign up for Pro", new_user_registration_path(plan: @pro_Plan.id), class: 'btn btn-success btn-lg btn-block'%>
-           
+        <div class="col-md-6">
+            <div class="well">
+                <h2 class="text-center">
+                    The Community
+                </h2>
+                    <p>Visit the community to meet other developers, entreprenuers, and investors!</p>
+                    <%= link_to "visit the community", "#", class: 'btn btn-block btn-lg btn-default' %>
+            </div>
         </div>
-        
-    </div>
+
+
+    <% else %>
+        <div class="col-md-6">
+            <div class="well">
+                <h2 class="text-center">Basic Membership</h2>
+                <h4 class="text-center">Sign up for free and get basic access to the community.</h4>
+                <br/>
+                <%= link_to "Sign up for free", new_user_registration_path(plan: @basic_Plan.id), class: 'btn btn-primary btn-lg btn-block'%>
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+            <div class="well text-center">
+                <h2>Pro Membership </h2>
+                <h4>Sign up for a Pro account and get full access to the cummunity.</h4>
+                <%= link_to "Sign up for Pro", new_user_registration_path(plan: @pro_Plan.id), class: 'btn btn-success btn-lg btn-block'%>
+               
+            </div>
+            
+        </div>
+    <% end %>
 </div>
