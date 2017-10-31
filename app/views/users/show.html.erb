@@ -10,7 +10,7 @@
          <div class="row">
             <p><%= @user.profile.description %></p>
         </div>      
-        <% if current_user.plan_id == 2 %>
+        <% if current_user.plan_id == 2 || current_user.id == @user.id%>
             <div class="row">
                 <p><%= @user.profile.contact_email %></p>
             </div>
