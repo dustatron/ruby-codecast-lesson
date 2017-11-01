@@ -1,8 +1,7 @@
 class ProfilesController < ApplicationController
     before_action :authenticate_user! #devise
     before_action :only_current_user
-    has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
     
     def new
         @user = User.find( params[:user_id] )
@@ -43,7 +42,7 @@ class ProfilesController < ApplicationController
     private
     
         def profile_params 
-            params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
+            params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
         end
         
         def only_current_user

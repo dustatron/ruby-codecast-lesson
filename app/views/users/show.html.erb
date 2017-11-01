@@ -6,6 +6,9 @@
         <div class="row">
             <p><%= @user.profile.job_title %></p>
         </div>
+        <div class="row">
+            <%= image_tag @user.profile.avatar.url(:thumb) %>
+        </div>
         
          <div class="row">
             <p><%= @user.profile.description %></p>
