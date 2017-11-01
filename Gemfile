@@ -11,6 +11,8 @@ gem 'devise'
 gem 'stripe', '1.57.1'
 # Use figaro to hide secerete keys
 gem 'figaro', '1.1.1'
+# Use Paperclip for image uploads
+gem 'paperclip', '4.2.1'
 
 
 #use postgresql as the database for produciton
