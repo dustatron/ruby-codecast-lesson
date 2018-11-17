@@ -20,7 +20,11 @@
       </button>
       <%= link_to root_path, class: 'navbar-brand' do %>
       <i class="fa fa-handshake-o"></i>
-      Dev Match
+        <% if current_user && current_user.plan_id == '2' %>
+          Dev Match Pro
+        <% else %>
+          Dev Match
+        <% end %>
       <% end %>
       
     </div>
